@@ -1,0 +1,368 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #98b8d0;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3e50;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links.center-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1abc9c;
+  transform: scale(1.1);
+}
+
+/* Hamburger */
+.hamburger-menu {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1001;
+  transition: transform 0.4s ease;
+}
+
+.bar {
+  width: 28px;
+  height: 3px;
+  background-color: #1abc9c;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+.hamburger-menu.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-menu.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Dropdown */
+.hamburger-dropdown {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  background: white;
+  padding: 1rem 1.2rem;
+  width: 240px;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.hamburger-dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.hamburger-dropdown h4 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.hamburger-dropdown p {
+  margin: 0.3rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Hero */
+.hero-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: white;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  background: #fff;
+  color: #1abc9c;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+section {
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Form */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form input,
+form button {
+  padding: 0.8rem;
+  margin: 0.5rem;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 80%;
+}
+
+form button {
+  background: #1abc9c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #16a085;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+footer .social-links {
+  margin-bottom: 1rem;
+}
+
+footer a {
+  margin: 0 0.7rem;
+  color: white;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+footer a:hover {
+  color: #1abc9c;
+  transform: scale(1.2);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .navbar, .hero-section, section {
+    padding: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .logo-img {
+    height: 45px;
+    width: 45px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .student-card {
+    width: 90%;
+  }
+}
+
+.ticker {
+  background-color: hsl(168, 43%, 56%);
+  color: rgb(39, 87, 183);
+  padding: 0.6rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+marquee {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Student List */
+.student-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.student-card {
+  background-color: #f3e8ff;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0 8px 16px rgba(124, 58, 237, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #d6b3ff;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.3);
+}
+
+.student-card h3 {
+  margin-bottom: 0.5rem;
+  color: #5b21b6;
+}
+
+.student-card p {
+  margin: 0.3rem 0;
+  color: #4b0082;
+  font-weight: 500;
+}
+
+#studentListContainer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.6s ease;
+  transform: translateY(-20px);
+}
+
+#studentListContainer.show {
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation on Get Started click */
+.animate-show {
+  animation: slideFadeIn 1.1s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search Bar */
+#searchInput {
+  padding: 0.8rem;
+  width: 70%;
+  max-width: 300px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: border 0.3s ease;
+}
+
+/* Animation and effects for search */
+#studentDirectory input[type="text"] {
+  animation: bounceIn 1s ease-in-out forwards;
+  border: 2px solid #5b21b6;
+  background-color: #f3e8ff;
+  color: #4b0082;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 0px rgba(124, 58, 237, 0);
+}
+
+#studentDirectory input[type="text"]:hover,
+#studentDirectory input[type="text"]:focus {
+  border-color: #9f7aea;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+  transform: scale(1.02);
+  outline: none;
+}

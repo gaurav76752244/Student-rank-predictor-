@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Performance Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#home" class="logo">
+      <img src="logo.png" alt="AG Logo" class="logo-img">
+    </a>
+    <ul class="nav-links center-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#predictor">Predict</a></li>
+      <li><a href="#studentDirectory">Students</a></li>
+    </ul>
+    <div class="hamburger-menu" onclick="toggleHamburger(this)">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <!-- Hamburger Dropdown -->
+  <div class="hamburger-dropdown" id="hamburgerDropdown">
+    <h4>About Us</h4>
+    <p>Created by Aman and Gaurav</p>
+    <h4>Contact</h4>
+    <p>Email Aman : a.amansingh3003@gmail.com</p>
+    <p>Email Gaurav : gk76752244@gmail.com</p>
+    <p>Phone: 6264173757</p>
+    <p>Phone: 9584337675</p>
+  </div>
+
+  <!-- Ticker -->
+  <div id="ticker" class="ticker">
+    <marquee behavior="scroll" direction="left">
+      🎓 Welcome to the Student Performance Predictor — Analyze your performance smartly using attendance, assignments, practicals & more! 🚀
+    </marquee>
+  </div>
+
+ <!-- Hero Section -->
+<section id="home" class="hero-section">
+    <h1>Student Performance Predictor</h1>
+    <p>Evaluate your performance based on attendance, assignments, practicals & more!</p>
+    <button class="btn" onclick="showSections()">Get Started</button>
+</section>
+
+<!-- Performance Form Section -->
+<section id="predictor" class="hidden">
+  <h2>Performance Prediction Form</h2>
+  <form id="rankForm">
+    <input type="text" id="Name" placeholder="Name of Student" required />
+    <input type="number" id="Attendance" placeholder="Attendance (out of 100)" required />
+    <input type="number" id="assignment" placeholder="Assignment (out of 20)" required />
+    <input type="number" id="study" placeholder="Study Hours (out of 8)" required />
+    <input type="number" id="grade" placeholder="Previous Grade (out of 100)" required />
+    <input type="number" id="participation" placeholder="Participation (out of 100)" required />
+    <button type="submit">Predict Performance</button>
+  </form>
+  <div id="result"></div>
+</section>
+
+<!-- Student Directory Section -->
+<section id="studentDirectory" class="hidden">
+  <h2>Students Database</h2>
+  <input type="text" id="searchInput"
+         placeholder="Search Student by Name"
+         oninput="searchStudent()" />
+  <button class="btn" onclick="toggleStudentList()">Show Students</button>
+  <div id="studentListContainer" class="student-grid hidden"></div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/gaurav-webdevelover/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/gaurav76752244" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="mailto:gk76752244@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>Created by Aman and Gaurav</p>
+</footer>
+
+<!-- Script File -->
+<script src="script.js"></script>
+</body>
+</html>
